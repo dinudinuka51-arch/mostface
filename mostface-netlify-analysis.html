@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MostFace - Netlify Hosting Issues</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Isthami', Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            min-height: 100vh;
+            padding-bottom: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .issues-box, .solutions-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+        }
+        
+        .issue-item, .solution-item {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .issue-icon, .solution-icon {
+            font-size: 1.5rem;
+            color: #fdbb2d;
+            margin-top: 5px;
+        }
+        
+        .issue-content, .solution-content {
+            flex: 1;
+        }
+        
+        .issue-title, .solution-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #fdbb2d;
+        }
+        
+        .file-structure {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .file-tree {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: monospace;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+        
+        .folder {
+            color: #fdbb2d;
+            font-weight: bold;
+        }
+        
+        .file {
+            color: #fff;
+            margin-left: 20px;
+        }
+        
+        .critical {
+            color: #ff6b6b;
+        }
+        
+        .btn {
+            background: #fdbb2d;
+            color: #1a2a6c;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #ffa500;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .sinhala-text {
+            line-height: 1.6;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .github-link {
+            color: #fdbb2d;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        .github-link:hover {
+            text-decoration: underline;
+        }
+        
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            padding: 12px;
+            margin: 10px 0;
+            font-family: monospace;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        
+        .note {
+            background: rgba(253, 187, 45, 0.1);
+            border-left: 4px solid #fdbb2d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h1>MostFace Netlify Hosting Issues</h1>
+            <p class="tagline sinhala-text">ඔබේ MostFace පද්ධතිය Netlify හි host කිරීමේදී ඇතිවන ගැටළු</p>
+        </header>
+        
+        <div class="content">
+            <div class="issues-box">
+                <h2 class="sinhala-text">හැකි අඩුපාඩු</h2>
+                
+                <div class="issue-item">
+                    <div class="issue-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="issue-content">
+                        <h3 class="issue-title">Backend Dependencies</h3>
+                        <p class="sinhala-text">Netlify static hosting පමණක් සපයයි. ඔබේ project එකට Python backend අවශ්‍ය වේ.</p>
+                    </div>
+                </div>
+                
+                <div class="issue-item">
+                    <div class="issue-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="issue-content">
+                        <h3 class="issue-title">MySQL Database</h3>
+                        <p class="sinhala-text">Netlify MySQL databases සඳහා සෘජු සහාය නොදක්වයි.</p>
+                    </div>
+                </div>
+                
+                <div class="issue-item">
+                    <div class="issue-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="issue-content">
+                        <h3 class="issue-title">Python Requirements</h3>
+                        <p class="sinhala-text">OpenCV, TensorFlow, Flask වැනි Python packages Netlify හි install කළ නොහැක.</p>
+                    </div>
+                </div>
+                
+                <div class="issue-item">
+                    <div class="issue-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="issue-content">
+                        <h3 class="issue-title">Webcam Access</h3>
+                        <p class="sinhala-text">Netlify හි hosted static sites වලට webcam access ලබාගැනීමට අපහසු විය හැක.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solutions-box">
+                <h2 class="sinhala-text">විසඳුම්</h2>
+                
+                <div class="solution-item">
+                    <div class="solution-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title">Separate Backend Hosting</h3>
+                        <p class="sinhala-text">Python backend සඳහා Heroku, AWS, DigitalOcean වැනි service භාවිතා කරන්න.</p>
+                    </div>
+                </div>
+                
+                <div class="solution-item">
+                    <div class="solution-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title">Cloud Database</h3>
+                        <p class="sinhala-text">AWS RDS, Google Cloud SQL හෝ MongoDB Atlas වැනි cloud database service භාවිතා කරන්න.</p>
+                    </div>
+                </div>
+                
+                <div class="solution-item">
+                    <div class="solution-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title">API Integration</h3>
+                        <p class="sinhala-text">Frontend සහ backend වෙන් කරන්න. Netlify frontend එකෙන් backend API calls කරන්න.</p>
+                    </div>
+                </div>
+                
+                <div class="solution-item">
+                    <div class="solution-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3 class="solution-title">HTTPS for Webcam</h3>
+                        <p class="sinhala-text">Netlify HTTPS සපයයි, එමනිසා webcam access සඳහා එය ප්‍රයෝජනවත් වේ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="file-structure">
+            <h2 class="sinhala-text" style="text-align: center; margin-bottom: 20px;">Project File Structure & Issues</h2>
+            
+            <div class="file-tree">
+                <div class="folder">mostface/</div>
+                <div class="file">app.py <span class="critical">(Flask backend - Netlify doesn't support)</span></div>
+                <div class="file">requirements.txt <span class="critical">(Python dependencies - won't work on Netlify)</span></div>
+                <div class="file">face_detection.py <span class="critical">(OpenCV code - requires Python)</span></div>
+                <div class="file">train_model.py <span class="critical">(TensorFlow code - requires Python)</span></div>
+                <div class="file">database.py <span class="critical">(MySQL connection - needs separate DB hosting)</span></div>
+                
+                <div class="folder">templates/</div>
+                <div class="file">index.html <span class="critical">(Could work with modifications)</span></div>
+                <div class="file">login.html</div>
+                
+                <div class="folder">static/</div>
+                <div class="file">style.css</div>
+                <div class="file">script.js</div>
+                
+                <div class="folder">haarcascades/</div>
+                <div class="file">haarcascade_frontalface_default.xml</div>
+                
+                <div class="folder">dataset/</div>
+                <div class="file critical">(Training data - too large for Netlify)</div>
+                
+                <div class="folder">trainer/</div>
+                <div class="file">trainer.yml <span class="critical">(Generated files - need backend)</span></div>
+            </div>
+            
+            <div class="note">
+                <p class="sinhala-text"><strong>සටහන:</strong> Netlify static websites host කිරීම සඳහා වන අතර, ඔබේ MostFace project එකට Python backend, MySQL database සහ machine learning libraries අවශ්‍ය වේ. මෙම සියලුම අංග Netlify හි සෘජුවම run කිරීමට නොහැකි ය.</p>
+            </div>
+        </div>
+        
+        <div class="file-structure">
+            <h2 class="sinhala-text" style="text-align: center; margin-bottom: 20px;">Netlify Configuration Example</h2>
+            
+            <p class="sinhala-text">ඔබට Netlify හි frontend එක deploy කිරීමට අවශ්‍ය නම්, ඔබට අවශ්‍ය වනු ඇත:</p>
+            
+            <div class="code-block">
+# netlify.toml
+
+[build]
+  publish = "static"  # Your frontend files directory
+  command = "echo 'No build command needed for static site'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+            </div>
+            
+            <p class="sinhala-text">ඉහත configuration එක static sites සඳහා වන අතර, ඔබේ Python backend සඳහා එය ක්‍රියා නොකරයි.</p>
+        </div>
+        
+        <div class="center">
+            <a href="https://github.com/dinudinuka51-arch/mostface.git" class="btn" target="_blank">
+                <i class="fab fa-github"></i> GitHub Repository බලන්න
+            </a>
+        </div>
+        
+        <footer>
+            <p class="sinhala-text">MostFace - මුහුණ හඳුනාගැනීමේ පද්ධතිය</p>
+            <p class="sinhala-text">Netlify හි සම්පූර්ණයෙන්ම host කිරීමට ඔබේ application architecture වෙනස් කිරීම අවශ්‍ය වනු ඇත</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple animation for the items
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.issue-item, .solution-item');
+            
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100 + (index * 100));
+            });
+        });
+    </script>
+</body>
+</html>
